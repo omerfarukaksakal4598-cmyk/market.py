@@ -1,59 +1,88 @@
 import streamlit as st
 
 # --- SAYFA AYARLARI ---
-st.set_page_config(page_title="Ömer'in Dijital Marketi", page_icon="🛍️", layout="centered")
+st.set_page_config(page_title="Ömer'in Dijital Portalı", page_icon="🛍️", layout="wide")
 
-st.title("🛍️ Ömer'in Dijital Marketi")
-st.markdown("---")
+# --- TASARIM (Market Şıklığı) ---
+st.markdown("""
+    <style>
+    .main { background-color: #f5f7f9; }
+    .stButton>button { border-radius: 20px; height: 3em; font-weight: bold; }
+    </style>
+    """, unsafe_allow_html=True)
 
-# --- 1. ÜRÜN: LABİRENT OK TEMİZLEME OYUNU ---
-st.header("🎮 Oyunlar")
-st.subheader("🏹 Labirent: Ok Temizleme")
-st.write("Profesyonel labirent tasarımı ve bölümlü yapısıyla yeni oyunumuzu deneyin!")
+st.title("🛍️ Ömer'in Dijital Marketi ve Oyun Portalı")
+st.write("Hoş geldin! Aşağıdan tüm projelerime ulaşabilir ve bilgisayarına indirebilirsin.")
+st.divider()
 
-# GitHub'daki direkt indirme linkin
-oklar_link = "https://github.com/omerfarukaksakal4598-cmyk/OmerGPT-Web/raw/refs/heads/main/oklar.py"
+# --- KATEGORİ: OYUNLAR ---
+st.header("🎮 Oyun Dünyası")
+col1, col2 = st.columns(2)
 
-st.link_button("📥 Oyunu Bilgisayarına İndir", oklar_link, use_container_width=True)
+with col1:
+    st.subheader("🏹 Labirent: Ok Temizleme")
+    st.write("Profesyonel labirent tasarımı ve bölümlü yapısıyla yeni nesil puzzle oyunu.")
+    # GitHub'dan direkt indirme linki
+    oklar_link = "https://github.com/omerfarukaksakal4598-cmyk/OmerGPT-Web/raw/refs/heads/main/oklar.py"
+    st.link_button("📥 Ok Oyununu İndir", oklar_link, use_container_width=True)
+
+with col2:
+    st.subheader("⛏️ Minecraft (Ömer Edition)")
+    st.write("Hayalindeki dünyayı inşa et! TLauncher ve Windows 10 uyumlu versiyon.")
+    # Minecraft dosyası linki
+    minecraft_link = "https://github.com/omerfarukaksakal4598-cmyk/OmerGPT-Web/raw/refs/heads/main/minecraft.py"
+    st.link_button("📥 Minecraft İndir", minecraft_link, use_container_width=True)
 
 st.divider()
 
-# --- 2. ÜRÜN: MINECRAFT OYUNU ---
-st.header("⛏️ Minecraft Dünyası")
-st.subheader("Minecraft (Full Versiyon)")
-st.write("Bloklarla hayalindeki dünyayı inşa et!")
+# --- KATEGORİ: YAZILIM VE EĞİTİM ---
+st.header("💻 Yazılım ve Rehberler")
+col3, col4 = st.columns(2)
 
-# Minecraft oyun dosyası için indirme linki (Buraya oyunun linkini koyabilirsin)
-minecraft_link = "https://github.com/omerfarukaksakal4598-cmyk/OmerGPT-Web/raw/refs/heads/main/minecraft.py"
+with col3:
+    st.subheader("🤖 ÖmerGPT Chatbot")
+    st.write("Hızlı, zeki ve Groq altyapılı kişisel asistan.")
+    chatbot_kod = "import streamlit as st\n# ÖmerGPT Chatbot Kodları buraya gelecek"
+    # Kodun ekranda açılmasını engelleyen güvenli indirme butonu
+    st.download_button(
+        label="📥 Chatbotu (.py) Olarak İndir",
+        data=chatbot_kod,
+        file_name="omer_chatbot.py",
+        mime="text/plain",
+        use_container_width=True
+    )
 
-st.link_button("📥 Minecraft Oyunu İndir", minecraft_link, use_container_width=True)
-
-st.divider()
-
-# --- 3. ÜRÜN: AKILLI CHATBOT ---
-st.header("🤖 Yapay Zeka Araçları")
-st.subheader("Akıllı Chatbot (ÖmerGPT)")
-st.write("Groq altyapısını kullanan hızlı ve zeki bir asistan.")
-
-chatbot_kod = """
-# ÖmerGPT Chatbot Kodları
-import streamlit as st
-from groq import Groq
-st.title('ÖmerGPT Asistan')
-"""
-
-# Kodun ekranda görünmemesi için download_button kullanıldı
-st.download_button(
-    label="📥 Chatbot Kodunu İndir (.py)",
-    data=chatbot_kod,
-    file_name="chatbot_omer.py",
-    mime="text/plain",
-    use_container_width=True
-)
+with col4:
+    st.subheader("📝 Okula Alışma Kılavuzu")
+    st.write("Yeni başlayanlar için hazırladığım hikayeleştirilmiş rehber.")
+    rehber_metni = "Okulun ilk günü heyecanlıdır... (Rehberin tam metni)"
+    st.download_button(
+        label="📥 Okul Rehberini İndir",
+        data=rehber_metni,
+        file_name="okul_rehberi.txt",
+        mime="text/plain",
+        use_container_width=True
+    )
 
 st.divider()
 
-# --- İLETİŞİM VE BİLGİ ---
+# --- KATEGORİ: KODLAMA PROJELERİ ---
+st.header("🧩 mBlock & Scratch Projeleri")
+col5, col6 = st.columns(2)
+
+with col5:
+    st.subheader("🌀 Labirent Oyunu (mBlock)")
+    st.write("Can sistemli ve hız değişkenli özel mBlock projesi.")
+    st.info("Bu proje yakında markete eklenecek!")
+
+with col6:
+    st.subheader("⚙️ Sistem Hızlandırıcı")
+    st.write("Windows 10 için RAM temizleme ve hızlandırma ipuçları.")
+    st.write("- Chrome yerine daha az RAM kullanan tarayıcıları dene.")
+    st.write("- Arka plan uygulamalarını kapat.")
+
+# --- ALT BİLGİ ---
 st.sidebar.title("🏪 Market Bilgisi")
-st.sidebar.info("Bu marketteki tüm içerikler Ömer tarafından geliştirilmiştir.")
-st.sidebar.write("📌 **Sürüm:** 1.0.5")
+st.sidebar.write("**Geliştirici:** Ömer Faruk")
+st.sidebar.write("**İşletim Sistemi:** Windows 10")
+st.sidebar.success("Tüm projeler günceldir!")
