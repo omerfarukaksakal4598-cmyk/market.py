@@ -11,7 +11,7 @@ st.markdown("""
     </style>
     """, unsafe_allow_html=True)
 
-st.title("🛍️ Ömer'in Dijital Marketi ve Oyun Portalı")
+st.title("🛍️  Market.net")
 st.write("Hoş geldin! Aşağıdan tüm projelerime ulaşabilir ve bilgisayarına indirebilirsin.")
 st.divider()
 
@@ -21,14 +21,13 @@ col1, col2 = st.columns(2)
 
 with col1:
     st.subheader("🏹 Labirent: Ok Temizleme")
-    st.write("Profesyonel labirent tasarımı ve bölümlü yapısıyla yeni nesil puzzle oyunu.")
+    st.write("Yeni puzzle oyunum.")
     # GitHub'dan direkt indirme linki
     oklar_link = "https://github.com/omerfarukaksakal4598-cmyk/OmerGPT-Web/raw/refs/heads/main/oklar.py"
     st.link_button("📥 Ok Oyununu İndir", oklar_link, use_container_width=True)
 
 with col2:
     st.subheader("⛏️ Minecraft (Ömer Edition)")
-    st.write("Hayalindeki dünyayı inşa et! TLauncher ve Windows 10 uyumlu versiyon.")
     # Minecraft dosyası linki
     minecraft_link = "https://github.com/omerfarukaksakal4598-cmyk/OmerGPT-Web/raw/refs/heads/main/minecraft.py"
     st.link_button("📥 Minecraft İndir", minecraft_link, use_container_width=True)
