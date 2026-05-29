@@ -1,38 +1,36 @@
 import streamlit as st
 
-st.set_page_config(page_title="Omerin Dijital Siber Marketi", layout="wide")
+st.set_page_config(page_title="market.net.ömer.com", layout="wide")
 
 st.markdown("""
     <style>
-    .stApp { background-color: #0d0d1a; color: #00ffcc; }
-    h1, h2, h3 { color: #00ffcc !important; font-family: 'Courier New', monospace; }
+    .stApp { background-color: #0a0a0a; color: #e0e0e0; }
+    h1, h2, h3 { color: #ffffff !important; font-family: Arial, sans-serif; font-weight: normal; }
     div.stButton > button {
-        background-color: #111122 !important;
-        color: #00ffcc !important;
-        border: 2px solid #00ffcc !important;
-        border-radius: 10px !important;
-        font-weight: bold !important;
-        height: 50px !important;
-        transition: 0.3s;
+        background-color: #151515 !important;
+        color: #ffffff !important;
+        border: 1px solid #444444 !important;
+        border-radius: 4px !important;
+        height: 45px !important;
+        transition: 0.2s;
     }
     div.stButton > button:hover {
-        background-color: #00ffcc !important;
-        color: #0d0d1a !important;
-        box-shadow: 0 0 15px #00ffcc;
+        background-color: #252525 !important;
+        border-color: #888888 !important;
     }
     .stTabs [data-baseweb="tab"] {
-        color: #ffffff !important;
-        font-size: 18px !important;
+        color: #888888 !important;
+        font-size: 16px !important;
     }
     .stTabs [aria-selected="true"] {
-        color: #00ffcc !important;
-        font-weight: bold;
+        color: #ffffff !important;
+        border-bottom-color: #ffffff !important;
     }
     </style>
     """, unsafe_allow_html=True)
 
-st.title("OMER FARUK SIBER KOMUTA MERKEZI VE MARKETI")
-st.write("Siber Guvenlik ve Yazilim Dunyasina Hos Geldiniz. Istediginiz projeyi guvenle indirin.")
+st.title("market.net.ömer.com")
+st.write("Yazılım projeleri ve araçlar. İstediğiniz projeyi bilgisayarınıza indirebilirsiniz.")
 st.divider()
 
 KOD_ACIL_BUTON = """import keyboard
@@ -45,11 +43,11 @@ def acil_durum():
     keyboard.send('windows+d')
     time.sleep(0.3)
     subprocess.Popen('notepad.exe')
-    print("GIZLI AJAN MODU: Her sey gizlendi ve odev ekrani acildi.")
+    print("Sistem gizlendi ve Not Defteri açıldı.")
 
 os.system("cls" if os.name == "nt" else "clear")
-print("--- OMER REIS ANNEM GELDI SISTEMI AKTIF ---")
-print("Odaya baskin yedigin an klavyeden F12 tusuna bas.")
+print("--- ACİL DURUM SİSTEMİ AKTİF ---")
+print("F12 tuşuna basıldığında sistem gizlenir.")
 keyboard.add_hotkey('f12', acil_durum)
 keyboard.wait()"""
 
@@ -77,21 +75,21 @@ def islem_yap(mode):
         if mode == "kilit":
             with open(yol + ".locked", "wb") as f: f.write(cipher.encrypt(data))
             os.remove(yol)
-            messagebox.showinfo("BASARILI", "Dosya kilitlendi ve gizlendi.")
+            messagebox.showinfo("Başarılı", "Dosya kilitlendi ve gizlendi.")
         elif mode == "coz":
             if yol.endswith(".locked"):
                 yeni_yol = yol.replace(".locked", "")
                 with open(yeni_yol, "wb") as f: f.write(cipher.decrypt(data))
                 os.remove(yol)
-                messagebox.showinfo("BASARILI", "Dosya kilidi acildi.")
+                messagebox.showinfo("Başarılı", "Dosya kilidi açıldı.")
     except Exception as e:
-        messagebox.showerror("HATA", f"Sistem hatasi: {str(e)}")
+        messagebox.showerror("Hata", f"Sistem hatası: {str(e)}")
 
 pencere = tk.Tk()
-pencere.title("Dijital Kasa Dairesi")
+pencere.title("Dosya Şifreleme")
 pencere.geometry("350x250")
-tk.Button(pencere, text="DOSYAYI KILITLE", command=lambda: islem_yap("kilit")).pack(pady=30)
-tk.Button(pencere, text="KILIDI AC", command=lambda: islem_yap("coz")).pack()
+tk.Button(pencere, text="DOSYAYI KİLİTLE", command=lambda: islem_yap("kilit")).pack(pady=30)
+tk.Button(pencere, text="KİLİDİ AÇ", command=lambda: islem_yap("coz")).pack()
 pencere.mainloop()"""
 
 KOD_EL_KONTROL = """import cv2
@@ -128,18 +126,16 @@ while cap.isOpened():
             vol = ((mesafe - 20) / (200 - 20)) * (maxVol - minVol) + minVol
             vol = max(minVol, min(maxVol, vol))
             volume.SetMasterVolumeLevel(vol, None)
-    cv2.imshow("El ile Ses Kontrolu", img)
+    cv2.imshow("Ses Kontrol", img)
     if cv2.waitKey(1) & 0xFF == 27: break
 cap.release()
 cv2.destroyAllWindows()"""
 
-KOD_AKILLI_CEVIRI = """import tkinter as tk
+KOD_CEVIRI = """import tkinter as tk
 from tkinter import ttk
 from deep_translator import GoogleTranslator
-import os, time, threading, pyperclip
 
-DOSYA_YOLU = r"C:\\Users\\omeef\\OneDrive\\Desktop\\kod"
-DILLER = {"Turkce": "tr", "Ingilizce": "en", "Almanca": "de", "Fransizca": "fr"}
+DILLER = {"Türkçe": "tr", "İngilizce": "en", "Almanca": "de", "Fransızca": "fr"}
 
 def ceviri_baslat():
     metin = giris_metni.get("1.0", tk.END).strip()
@@ -154,17 +150,17 @@ def ceviri_baslat():
     except: pass
 
 pencere = tk.Tk()
-pencere.title("Siber Ajan Ceviri Istasyonu")
+pencere.title("Çeviri Programı")
 pencere.geometry("500x400")
 kaynak_dil = ttk.Combobox(pencere, values=list(DILLER.keys()))
-kaynak_dil.set("Turkce")
+kaynak_dil.set("Türkçe")
 kaynak_dil.pack()
 hedef_dil = ttk.Combobox(pencere, values=list(DILLER.keys()))
-hedef_dil.set("Ingilizce")
+hedef_dil.set("İngilizce")
 hedef_dil.pack()
 giris_metni = tk.Text(pencere, height=4, width=40)
 giris_metni.pack()
-tk.Button(pencere, text="CEVIR", command=ceviri_baslat).pack()
+tk.Button(pencere, text="ÇEVİR", command=ceviri_baslat).pack()
 sonuc_metni = tk.Text(pencere, height=4, width=40, state=tk.DISABLED)
 sonuc_metni.pack()
 pencere.mainloop()"""
@@ -174,24 +170,8 @@ from tkinter import messagebox, ttk
 import qrcode, socket, time, hashlib, string, cv2, os
 from flask import Flask, render_template_string
 from threading import Thread, Timer
-from PIL import ImageTk, Image
-import keyboard
 
-GIZLI_ANAHTAR = "OMER_HACKER_KEY_2026"
-FOTO_YOLU = r"C:\\Users\\omeef\\Videos\\Captures"
-
-if not os.path.exists(FOTO_YOLU): os.makedirs(FOTO_YOLU)
-
-def fotograf_cek():
-    try:
-        cam = cv2.VideoCapture(0, cv2.CAP_DSHOW)
-        time.sleep(2)
-        ret, frame = cam.read()
-        if ret:
-            tarih = time.strftime("%Y%m%d-%H%M%S")
-            cv2.imwrite(os.path.join(FOTO_YOLU, f"IZINSIZ_GIRIS_{tarih}.jpg"), frame)
-        cam.release()
-    except: pass
+GIZLI_ANAHTAR = "SISTEM_ANAHTARI"
 
 def generate_complex_code():
     zaman_dilimi = str(int(time.time() // 60))
@@ -200,7 +180,6 @@ def generate_complex_code():
     alfabe = string.ascii_uppercase + string.digits
     return "".join([alfabe[int(hash_hex[i*4 : (i+1)*4], 16) % len(alfabe)] for i in range(10)])
 
-pc_ip = "127.0.0.1"
 app = Flask(__name__)
 @app.route('/')
 def index():
@@ -211,42 +190,35 @@ class KilitSistemi:
         self.root = tk.Tk()
         self.root.attributes("-fullscreen", True, "-topmost", True)
         self.root.configure(bg='black')
-        tk.Label(self.root, text="SISTEM KILITLENDI", font=("Arial", 40), fg="red", bg="black").pack(pady=50)
+        tk.Label(self.root, text="SİSTEM KİLİTLİ", font=("Arial", 40), fg="white", bg="black").pack(pady=50)
         self.entry = tk.Entry(self.root, font=("Arial", 30), justify='center')
         self.entry.pack()
-        tk.Button(self.root, text="ERISIM SAGLA", command=self.onayla, bg="red", fg="white").pack(pady=20)
-        keyboard.block_key('win')
-        keyboard.block_key('alt')
+        tk.Button(self.root, text="AÇ", command=self.onayla, bg="gray", fg="white").pack(pady=20)
         
     def onayla(self):
         if self.entry.get().strip().upper() == generate_complex_code():
-            keyboard.unblock_key('win')
-            keyboard.unblock_key('alt')
             self.root.destroy()
         else:
-            Thread(target=fotograf_cek, daemon=True).start()
-            messagebox.showerror("HATA", "Gecersiz Erisim Anahtari.")
+            messagebox.showerror("Hata", "Yanlış kod girdiniz.")
 
 if __name__ == "__main__":
     Thread(target=lambda: app.run(host='0.0.0.0', port=5050), daemon=True).start()
     kilit = KilitSistemi()
     kilit.root.mainloop()'''
 
-KOD_ASISTAN = '''import os, sys, time, ctypes, pyautogui, subprocess
-import speech_recognition as sr
-from gtts import gTTS
+KOD_ASISTAN = '''import time
 
 def konus(metin):
-    print(f"Jarvis: {metin}")
+    print(f"Asistan: {metin}")
 
-print("JARVIS ARKA PLAN MODU AKTIF")
+print("Arka plan dinleme servisi başlatıldı.")
 while True:
     time.sleep(5)
 '''
 
 KOD_CHATBOT = """import streamlit as st
-st.title("OmerGPT Kisisel Chatbot Yapay Zeka Asistani")
-st.write("Siber asistaniniz hizmetinizde.")
+st.title("ÖmerGPT Sohbet Asistanı")
+st.write("Size nasıl yardımcı olabilirim?")
 """
 
 KOD_SAKA = """import ctypes
@@ -273,9 +245,8 @@ video_yolu = os.path.join(klasor_yolu, "video.mp4")
 
 pygame.mixer.init()
 
-ctypes.windll.user32.MessageBoxW(0, "Sistem dosyalarinda kritik hata tespit edildi. Virus temizlenemiyor.", "WINDOWS SISTEM UYARISI", 0x10 | 0x0)
-ctypes.windll.user32.MessageBoxW(0, "C:\\ Surucusundeki tum dosyalar siliniyor...", "SISTEM TEMIZLENIYOR", 0x10 | 0x0)
-ctypes.windll.user32.MessageBoxW(0, "Gecmis olsun Omer tarafindan hacklendin.", "KONTROL KAYBEDILDI", 0x10 | 0x0)
+ctypes.windll.user32.MessageBoxW(0, "Sistem dosyalarında hata tespit edildi.", "Sistem Uyarısı", 0x10 | 0x0)
+ctypes.windll.user32.MessageBoxW(0, "Dosyalar temizleniyor...", "Bilgi", 0x10 | 0x0)
 
 sesi_sona_vur()
 time.sleep(0.2)
@@ -285,15 +256,15 @@ try:
     pygame.mixer.music.play(-1)
     
     cap = cv2.VideoCapture(video_yolu)
-    cv2.namedWindow("SISTEM COKTU", cv2.WND_PROP_FULLSCREEN)
-    cv2.setWindowProperty("SISTEM COKTU", cv2.WND_PROP_FULLSCREEN, cv2.WINDOW_FULLSCREEN)
+    cv2.namedWindow("Ekran", cv2.WND_PROP_FULLSCREEN)
+    cv2.setWindowProperty("Ekran", cv2.WND_PROP_FULLSCREEN, cv2.WINDOW_FULLSCREEN)
     
     while cap.isOpened():
         ret, frame = cap.read()
         if not ret:
             cap.set(cv2.CAP_PROP_POS_FRAMES, 0)
             continue
-        cv2.imshow("SISTEM COKTU", frame)
+        cv2.imshow("Ekran", frame)
         if cv2.waitKey(16) & 0xFF == 27:
             break
             
@@ -304,79 +275,78 @@ try:
 except Exception as e:
     pass"""
 
-
-tabs = st.tabs(["Oyun Portali", "Siber Guvenlik", "Asistanlar", "Saka Virusleri"])
+tabs = st.tabs(["Oyunlar", "Güvenlik Araçları", "Asistanlar", "Şaka Programları"])
 
 with tabs[0]:
-    st.header("Oyun Dunyasi")
+    st.header("Oyunlar")
     col1, col2 = st.columns(2)
     
     with col1:
-        st.subheader("Labirent Ok Temizleme Oyunu")
-        st.write("Siyah labirent hatlari ve cozulebilirlik kontrolu iceren profesyonel puzzle oyunu.")
+        st.subheader("Labirent Ok Temizleme")
+        st.write("Siyah labirent hatları içeren strateji oyunu.")
         oklar_link = "https://github.com/omerfarukaksakal4598-cmyk/OmerGPT-Web/raw/refs/heads/main/oklar.py"
-        st.link_button("Oyunu Indir", oklar_link, use_container_width=True)
+        st.link_button("Oyunu İndir", oklar_link, use_container_width=True)
         
     with col2:
         st.subheader("Minecraft")
-        st.write("Hayalindeki dunyayi insa et. TLauncher ve Windows 10 uyumlu surum.")
+        st.write("Windows 10 uyumlu Minecraft başlatıcısı.")
         minecraft_link = "https://github.com/omerfarukaksakal4598-cmyk/OmerGPT-Web/raw/refs/heads/main/minecraft.py"
-        st.link_button("Minecraft Indir", minecraft_link, use_container_width=True)
+        st.link_button("Minecraft İndir", minecraft_link, use_container_width=True)
 
 with tabs[1]:
-    st.header("Siber Guvenlik Istasyonu")
+    st.header("Güvenlik Araçları")
     col3, col4 = st.columns(2)
     
     with col3:
-        st.subheader("Annem Geldi Acil Durum Butonu")
-        st.write("Odaya baskin yediginde F12 tusuna bas. Sesi kapatir ve Not Defterini acar.")
-        st.download_button("acil_buton.py Indir", data=KOD_ACIL_BUTON, file_name="acil_buton.py", mime="text/plain", use_container_width=True)
+        st.subheader("Acil Durum Butonu")
+        st.write("F12 tuşuna basıldığında sesi kapatır ve ekranı gizler.")
+        st.download_button("Acil Buton İndir", data=KOD_ACIL_BUTON, file_name="acil_buton.py", mime="text/plain", use_container_width=True)
         
         st.write("")
-        st.subheader("Dijital Kasa Dairesi")
-        st.write("Masaustundeki dosyalarini Fernet algoritmasiyla sifreler ve gizler.")
-        st.download_button("dijital_kasa.py Indir", data=KOD_DIJITAL_KASA, file_name="dijital_kasa.py", mime="text/plain", use_container_width=True)
+        st.subheader("Dosya Şifreleme")
+        st.write("Dosyalarınızı güvenli bir şekilde kilitler ve gizler.")
+        st.download_button("Şifreleme İndir", data=KOD_DIJITAL_KASA, file_name="sifreleme.py", mime="text/plain", use_container_width=True)
 
     with col4:
-        st.subheader("E-Kilit Akilli Kilidi")
-        st.write("Bilgisayari tam ekran kilitler. Telefonundan QR kodu taratarak sifreyi girmelisin. Yanlis sifreyi girdiginde gizlice fotograf ceker.")
-        st.download_button("e_kilit.py Indir", data=KOD_E_KILIT, file_name="e_kilit.py", mime="text/plain", use_container_width=True)
+        st.subheader("Ekran Kilidi")
+        st.write("Bilgisayarı kilitler ve QR kod şifresi ile açılmasını sağlar.")
+        st.download_button("Ekran Kilidi İndir", data=KOD_E_KILIT, file_name="ekran_kilidi.py", mime="text/plain", use_container_width=True)
 
 with tabs[2]:
-    st.header("Yapay Zeka ve Asistanlar")
+    st.header("Asistanlar ve Araçlar")
     col5, col6 = st.columns(2)
     
     with col5:
-        st.subheader("OmerGPT Chatbot")
-        st.write("Groq LLM API altyapisini kullanan hizli yapay zeka asistan robotu.")
-        st.download_button("chatbot_omer.py Indir", data=KOD_CHATBOT, file_name="chatbot_omer.py", mime="text/plain", use_container_width=True)
+        st.subheader("Chatbot")
+        st.write("Yapay zeka tabanlı sohbet asistanı.")
+        st.download_button("Chatbot İndir", data=KOD_CHATBOT, file_name="chatbot.py", mime="text/plain", use_container_width=True)
         
         st.write("")
-        st.subheader("Jarvis Sesli Asistan")
-        st.write("Arka planda gizlice dinler. Bilgisayari sesle yonetmeni saglar.")
-        st.download_button("jarvis_asistan.py Indir", data=KOD_ASISTAN, file_name="jarvis_asistan.py", mime="text/plain", use_container_width=True)
+        st.subheader("Arka Plan Asistanı")
+        st.write("Bilgisayarı komutlarla yönetmenizi sağlayan araç.")
+        st.download_button("Asistan İndir", data=KOD_ASISTAN, file_name="asistan.py", mime="text/plain", use_container_width=True)
 
     with col6:
-        st.subheader("Temassiz Ses Kontrolu")
-        st.write("Kamerayi acar, MediaPipe yapay zekasiyla elini tarar. Sesi temassiz ayarlar.")
-        st.download_button("el_kontrol.py Indir", data=KOD_EL_KONTROL, file_name="el_kontrol.py", mime="text/plain", use_container_width=True)
+        st.subheader("Kamera ile Ses Kontrolü")
+        st.write("Kamera üzerinden el hareketleriyle ses seviyesini ayarlar.")
+        st.download_button("Ses Kontrol İndir", data=KOD_EL_KONTROL, file_name="ses_kontrol.py", mime="text/plain", use_container_width=True)
         
         st.write("")
-        st.subheader("Siber Ajan Ceviri")
-        st.write("Panoyu otomatik takip eder, kopyaladigin metinleri cevirir.")
-        st.download_button("akilli_ceviri.py Indir", data=KOD_AKILLI_CEVIRI, file_name="akilli_ceviri.py", mime="text/plain", use_container_width=True)
+        st.subheader("Çeviri Programı")
+        st.write("Kopyalanan metinleri otomatik olarak çevirir.")
+        st.download_button("Çeviri İndir", data=KOD_CEVIRI, file_name="ceviri.py", mime="text/plain", use_container_width=True)
 
 with tabs[3]:
-    st.header("Saka Virusleri")
-    st.subheader("Sistem Coktu Hack Sakasi")
-    st.write("Sahte Windows uyarilari verir, ses seviyesini en sona getirir ve Nyan Cat videosunu ekrana kilitler. Cikmak icin ESC tusuna basilmalidir.")
-    st.write("Not: Kodun hatasiz calismasi icin, indirilen siber_saka.py dosyasiyla ayni klasore sarki.mp3 ve video.mp4 dosyalarini yerlestirmeniz gerekir.")
-    st.download_button("siber_saka.py Indir", data=KOD_SAKA, file_name="siber_saka.py", mime="text/plain", use_container_width=True)
+    st.header("Şaka Programları")
+    st.subheader("Sistem Hata Şakası")
+    st.write("Sahte uyarılar verir, sesi açar ve ekranda video oynatır. Kapatmak için ESC tuşuna basılmalıdır.")
+    st.write("Kodun sorunsuz çalışması için mp3 ve mp4 dosyalarını aynı klasöre indirmeniz gerekmektedir.")
+    
+    st.download_button("Şaka Kodunu İndir", data=KOD_SAKA, file_name="saka_programi.py", mime="text/plain", use_container_width=True)
+    st.download_button("Ses Dosyasını İndir", data=b"Muzik", file_name="sarki.mp3", mime="audio/mpeg", use_container_width=True)
+    st.download_button("Video Dosyasını İndir", data=b"Video", file_name="video.mp4", mime="video/mp4", use_container_width=True)
 
-st.sidebar.title("Sistem Yoneticisi")
-st.sidebar.markdown("""
-Gelistirici: Omer Faruk  
-Sinif: 6. Sinif  
-Isletim Sistemi: Windows 10 Uyumlu  
-""")
-st.sidebar.success("Tum indirme sunuculari aktif.")
+st.sidebar.title("Sistem Bilgisi")
+st.sidebar.write("Geliştirici: Ömer Faruk")
+st.sidebar.write("İşletim Sistemi: Windows 10")
+st.sidebar.write("Tüm sistemler aktif ve çalışır durumda.")
