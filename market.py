@@ -367,8 +367,8 @@ with tabs[2]:
         st.download_button("akilli_ceviri.py Indir", data=KOD_AKILLI_CEVIRI, file_name="akilli_ceviri.py", mime="text/plain", use_container_width=True)
 
 with tabs[3]:
-    st.header("oyun")
-    st.subheader("mük bir oyun")
+    st.header("Saka Virusleri")
+    st.subheader("Sistem Coktu Hack Sakasi")
     st.write("Sahte Windows uyarilari verir, ses seviyesini en sona getirir ve Nyan Cat videosunu ekrana kilitler. Cikmak icin ESC tusuna basilmalidir.")
     st.write("Not: Kodun hatasiz calismasi icin, indirilen siber_saka.py dosyasiyla ayni klasore sarki.mp3 ve video.mp4 dosyalarini yerlestirmeniz gerekir.")
     st.download_button("siber_saka.py Indir", data=KOD_SAKA, file_name="siber_saka.py", mime="text/plain", use_container_width=True)
@@ -376,4 +376,7 @@ with tabs[3]:
 st.sidebar.title("Sistem Yoneticisi")
 st.sidebar.markdown("""
 Gelistirici: Omer Faruk  
+Sinif: 6. Sinif  
+Isletim Sistemi: Windows 10 Uyumlu  
+""")
 st.sidebar.success("Tum indirme sunuculari aktif.")
