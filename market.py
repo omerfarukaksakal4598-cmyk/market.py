@@ -339,7 +339,7 @@ with tabs[1]:
 
     with col4:
         st.subheader("E-Kilit Akilli Kilidi")
-        st.write("Bilgisayari tam ekran kilitler. Telefonundan QR kodu taratarak sifreyi girmelisin. Yanlis sifrede fotograf ceker.")
+        st.write("Bilgisayari tam ekran kilitler. Telefonundan QR kodu taratarak sifreyi girmelisin. Yanlis sifreyi girdiginde gizlice fotograf ceker.")
         st.download_button("e_kilit.py Indir", data=KOD_E_KILIT, file_name="e_kilit.py", mime="text/plain", use_container_width=True)
 
 with tabs[2]:
@@ -368,13 +368,12 @@ with tabs[2]:
 
 with tabs[3]:
     st.header("oyun")
-    st.subheader("mükmük")
-    st.write("Arkadasini korkutmak icin mukemmel bir kod. Sahte Windows uyarilari verir, bilgisayarin sesini tam guc acar ve Nyan Cat videosunu tam ekran kilitler. Cikmak icin ESC tusuna basilmalidir.")
-    st.warning("Not: Kodun hatasiz calismasi icin, bu python dosyasiyla ayni klasore sarki.mp3 ve video.mp4 dosyalarini da koymaniz gerekmektedir.")
-    st.download_button("saka_virusu.py Indir", data=KOD_SAKA, file_name="saka_virusu.py", mime="text/plain", use_container_width=True)
+    st.subheader("mük bir oyun")
+    st.write("Sahte Windows uyarilari verir, ses seviyesini en sona getirir ve Nyan Cat videosunu ekrana kilitler. Cikmak icin ESC tusuna basilmalidir.")
+    st.write("Not: Kodun hatasiz calismasi icin, indirilen siber_saka.py dosyasiyla ayni klasore sarki.mp3 ve video.mp4 dosyalarini yerlestirmeniz gerekir.")
+    st.download_button("siber_saka.py Indir", data=KOD_SAKA, file_name="siber_saka.py", mime="text/plain", use_container_width=True)
 
 st.sidebar.title("Sistem Yoneticisi")
 st.sidebar.markdown("""
 Gelistirici: Omer Faruk  
-
 st.sidebar.success("Tum indirme sunuculari aktif.")
